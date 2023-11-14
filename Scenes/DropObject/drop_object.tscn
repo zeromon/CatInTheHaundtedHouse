@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqq3mct25tnu"]
+
+[ext_resource type="Script" path="res://Scenes/DropObject/drop_object.gd" id="1_oldkk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv0py"]
+
+[node name="DropObject" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_oldkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_gv0py")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

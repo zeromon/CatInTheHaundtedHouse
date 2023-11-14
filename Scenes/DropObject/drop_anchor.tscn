@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk03ws1esoaae"]
+
+[ext_resource type="Script" path="res://Scenes/DropObject/drop_anchor.gd" id="1_dy31y"]
+
+[node name="DropAnchor" type="PinJoint2D"]
+script = ExtResource("1_dy31y")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 720)
+collision_mask = 2

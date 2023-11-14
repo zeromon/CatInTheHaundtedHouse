@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://craby203ialeq"]
+
+[ext_resource type="Script" path="res://Scenes/EnterArea/EnterArea.gd" id="1_1hqse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnukh"]
+size = Vector2(20, 73)
+
+[node name="EnterArea" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_1hqse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rnukh")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

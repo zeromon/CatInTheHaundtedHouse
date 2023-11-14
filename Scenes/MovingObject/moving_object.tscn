@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d7f7ngaohts5"]
+
+[ext_resource type="Script" path="res://Scenes/MovingObject/moving_object.gd" id="1_pf1vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsdr3"]
+size = Vector2(54, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj5kr"]
+size = Vector2(55, 20)
+
+[node name="MovingObject" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_pf1vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dsdr3")
+
+[node name="BodyMovingObject" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyMovingObject"]
+position = Vector2(0.5, 0)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_cj5kr")
+
+[connection signal="body_entered" from="BodyMovingObject" to="." method="_on_body_moving_object_body_entered"]

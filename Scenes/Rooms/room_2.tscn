@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbi3mhli0t0h"]
+
+[ext_resource type="PackedScene" uid="uid://c8eq3sc0l7fce" path="res://Scenes/Ground/ground.tscn" id="1_csom2"]
+
+[node name="Room2" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_csom2")]
+position = Vector2(574, 630)
+
+[node name="Up" parent="." instance=ExtResource("1_csom2")]
+position = Vector2(571, 0)

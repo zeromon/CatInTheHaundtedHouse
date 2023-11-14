@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://ec6oiaa4gi7x"]
+
+[ext_resource type="PackedScene" uid="uid://c8eq3sc0l7fce" path="res://Scenes/Ground/ground.tscn" id="1_jcbsw"]
+[ext_resource type="PackedScene" uid="uid://dk03ws1esoaae" path="res://Scenes/DropObject/drop_anchor.tscn" id="3_u3dn7"]
+[ext_resource type="PackedScene" uid="uid://eqq3mct25tnu" path="res://Scenes/DropObject/drop_object.tscn" id="4_fgcpf"]
+[ext_resource type="PackedScene" uid="uid://d7f7ngaohts5" path="res://Scenes/MovingObject/moving_object.tscn" id="5_4ge6u"]
+[ext_resource type="PackedScene" uid="uid://daxi067xlkeu0" path="res://Scenes/CollectibleObjects/collectible_obj.tscn" id="6_45vse"]
+
+[node name="Room1" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_jcbsw")]
+position = Vector2(574, 630)
+
+[node name="LeftLimit" parent="." instance=ExtResource("1_jcbsw")]
+position = Vector2(-12, 66)
+rotation = 1.5708
+
+[node name="Up" parent="." instance=ExtResource("1_jcbsw")]
+position = Vector2(574, 0)
+
+[node name="MovingObjetcs" type="Node2D" parent="."]
+
+[node name="MovingObject" parent="MovingObjetcs" node_paths=PackedStringArray("_ray_cast") instance=ExtResource("5_4ge6u")]
+position = Vector2(199, 423)
+_ray_cast = NodePath("RayCast2D")
+_speed = 500.0
+
+[node name="RayCast2D" type="RayCast2D" parent="MovingObjetcs/MovingObject"]
+target_position = Vector2(165, 194)
+collision_mask = 2
+
+[node name="MovingObject2" parent="MovingObjetcs" node_paths=PackedStringArray("_ray_cast") instance=ExtResource("5_4ge6u")]
+position = Vector2(811, 496)
+_ray_cast = NodePath("RayCast2D")
+_speed = 500.0
+
+[node name="RayCast2D" type="RayCast2D" parent="MovingObjetcs/MovingObject2"]
+target_position = Vector2(-163, 131)
+collision_mask = 2
+
+[node name="DropObjects" type="Node2D" parent="."]
+
+[node name="DropAnchor" parent="DropObjects" instance=ExtResource("3_u3dn7")]
+position = Vector2(480, 34)
+node_a = NodePath("../../Up")
+node_b = NodePath("../DropObject")
+
+[node name="DropObject" parent="DropObjects" instance=ExtResource("4_fgcpf")]
+position = Vector2(478, 92)
+
+[node name="Collectibles" type="Node2D" parent="."]
+
+[node name="CollectibleObj" parent="Collectibles" instance=ExtResource("6_45vse")]
+position = Vector2(627, 550)
+_ColliderName = "coin"

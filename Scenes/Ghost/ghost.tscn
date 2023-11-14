@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcqrewwuo8ggc"]
+
+[ext_resource type="Script" path="res://Scenes/Ghost/ghost.gd" id="1_pel5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkq76"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_062kn"]
+
+[node name="Ghost" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_pel5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_gkq76")
+
+[node name="BodyGhost" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyGhost"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_062kn")

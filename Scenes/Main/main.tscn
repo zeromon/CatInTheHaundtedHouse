@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt5r1uib0jxv8"]
+
+[ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_pxvvt"]
+[ext_resource type="PackedScene" uid="uid://ec6oiaa4gi7x" path="res://Scenes/Rooms/room_1.tscn" id="1_uj1nb"]
+[ext_resource type="PackedScene" uid="uid://hmx3y8cw3ifb" path="res://Scenes/Cat/cat.tscn" id="2_ofkyq"]
+[ext_resource type="PackedScene" uid="uid://wbi3mhli0t0h" path="res://Scenes/Rooms/room_2.tscn" id="4_tfwem"]
+[ext_resource type="PackedScene" uid="uid://craby203ialeq" path="res://Scenes/EnterArea/enter_area.tscn" id="5_v5a7t"]
+[ext_resource type="PackedScene" uid="uid://coiroubajeabm" path="res://Scenes/Doors/door.tscn" id="6_i0wxi"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pxvvt")
+
+[node name="Room1" parent="." instance=ExtResource("1_uj1nb")]
+
+[node name="Cat" parent="." instance=ExtResource("2_ofkyq")]
+position = Vector2(78, 574)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Cat"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="CheckPoints" type="Node2D" parent="."]
+
+[node name="CheckPoint1" type="Marker2D" parent="CheckPoints"]
+position = Vector2(68, 581)
+
+[node name="CheckPoint2" type="Marker2D" parent="CheckPoints"]
+position = Vector2(1232, 581)
+
+[node name="Room2" parent="." instance=ExtResource("4_tfwem")]
+position = Vector2(1156, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(78, 574)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="EnterRoom2" parent="." node_paths=PackedStringArray("check_point") instance=ExtResource("5_v5a7t")]
+position = Vector2(1182, 574)
+check_point = NodePath("../CheckPoints/CheckPoint2")
+
+[node name="Door1" parent="." instance=ExtResource("6_i0wxi")]
+position = Vector2(1150, 576)
+
+[connection signal="enter_area" from="EnterRoom2" to="." method="_on_enter_room_2_enter_area"]
