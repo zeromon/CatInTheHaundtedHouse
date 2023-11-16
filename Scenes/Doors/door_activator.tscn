@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://xhk35srt0psw"]
+
+[ext_resource type="Script" path="res://Scenes/Doors/door_activator.gd" id="1_gujkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mb2w"]
+
+[node name="DoorActivator" type="Node2D"]
+script = ExtResource("1_gujkf")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 138.0
+offset_bottom = -49.0
+text = "Press E to insert  key"
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4, 4)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6mb2w")
+
+[node name="UiActivator" type="CanvasLayer" parent="."]
+visible = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

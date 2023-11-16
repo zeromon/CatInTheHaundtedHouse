@@ -15,3 +15,15 @@ func _physics_process(delta):
 	velocity = _direction.normalized() * speed
 	move_and_slide()
 	pass
+	
+func set_moving(value:bool):
+	if value:
+		$AudioGhost.play()
+	else:
+		$AudioGhost.stop()
+	set_physics_process(value)
+
+
+func _on_audio_ghost_finished():
+	$AudioGhost.play()
+	pass # Replace with function body.

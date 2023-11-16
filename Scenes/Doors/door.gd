@@ -6,6 +6,10 @@ enum STATUS{OPEN, CLOSE}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if _status == STATUS.OPEN:
+		$CollisionShape2D.set_deferred("disabled", true)
+	elif _status == STATUS.CLOSE:
+		$CollisionShape2D.set_deferred("disabled", false)
 	pass # Replace with function body.
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wbi3mhli0t0h"]
+[gd_scene load_steps=3 format=3 uid="uid://wbi3mhli0t0h"]
 
 [ext_resource type="PackedScene" uid="uid://c8eq3sc0l7fce" path="res://Scenes/Ground/ground.tscn" id="1_csom2"]
+[ext_resource type="PackedScene" uid="uid://ch8yb33b72818" path="res://Scenes/CollectibleObjects/key.tscn" id="2_s3swu"]
 
 [node name="Room2" type="Node2D"]
 
@@ -9,3 +10,18 @@ position = Vector2(574, 630)
 
 [node name="Up" parent="." instance=ExtResource("1_csom2")]
 position = Vector2(571, 0)
+
+[node name="Platform1" parent="." instance=ExtResource("1_csom2")]
+position = Vector2(237, 566)
+scale = Vector2(0.165, 0.605)
+
+[node name="Platform2" parent="." instance=ExtResource("1_csom2")]
+position = Vector2(414, 514)
+scale = Vector2(0.165, 0.605)
+
+[node name="Platform3" parent="." instance=ExtResource("1_csom2")]
+position = Vector2(596, 468)
+scale = Vector2(0.165, 0.605)
+
+[node name="Key" parent="." instance=ExtResource("2_s3swu")]
+position = Vector2(628, 416)
