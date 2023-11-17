@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://usmryrtrfgsc" path="res://Black_Cat/Frames/JumpFall/WalkJump0004.png" id="1_2v1wc"]
 [ext_resource type="Script" path="res://Black_Cat/RemoveThis.gd" id="1_dj0tf"]
+[ext_resource type="Texture2D" uid="uid://ce6bdo614121f" path="res://Black_Cat/Lights/LightTextures/Radial.png" id="2_3oxu1"]
 [ext_resource type="Texture2D" uid="uid://c86i0kf3btl14" path="res://Black_Cat/Frames/JumpFall/WalkJump0005.png" id="2_kg7au"]
 [ext_resource type="Texture2D" uid="uid://c0fd2pfuk6fwk" path="res://Black_Cat/Frames/JumpFall/WalkJump0006.png" id="3_axjuv"]
 [ext_resource type="Texture2D" uid="uid://clmdrwswle7dd" path="res://Black_Cat/Frames/BlackCat.png" id="4_crjed"]
@@ -19,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dbbaoxtetiymd" path="res://Black_Cat/Frames/Walk/Walk0004.png" id="12_3120r"]
 [ext_resource type="Texture2D" uid="uid://n51go6ns3fiw" path="res://Black_Cat/Frames/Walk/Walk0005.png" id="13_s4q37"]
 [ext_resource type="Texture2D" uid="uid://1mpvqngulk6o" path="res://Black_Cat/Frames/Walk/Walk0006.png" id="14_1q4qy"]
-[ext_resource type="Texture2D" uid="uid://ce6bdo614121f" path="res://Lights/LightTextures/Radial.png" id="16_irqdd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_em8mu"]
 animations = [{
@@ -170,6 +170,33 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_qcfc8"]
+resource_name = "Hissing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hiss"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 2]
+}
+
 [sub_resource type="Animation" id="Animation_4ybcj"]
 resource_name = "Idle"
 loop_mode = 1
@@ -196,6 +223,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_m56d1"]
+resource_name = "Interact"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Interact"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_3cfna"]
@@ -252,6 +307,33 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_x5j5j"]
+resource_name = "sit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Sit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_ytjcf"]
 resource_name = "walk"
 loop_mode = 1
@@ -280,88 +362,6 @@ tracks/1/keys = {
 "values": [&"Walk"]
 }
 
-[sub_resource type="Animation" id="Animation_x5j5j"]
-resource_name = "sit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Sit"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_qcfc8"]
-resource_name = "Hissing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Hiss"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 2]
-}
-
-[sub_resource type="Animation" id="Animation_m56d1"]
-resource_name = "Interact"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Interact"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2efiv"]
 _data = {
 "Fall": SubResource("Animation_msdk3"),
@@ -384,7 +384,7 @@ script = ExtResource("1_dj0tf")
 show_behind_parent = true
 color = Color(1, 0.635294, 1, 1)
 energy = 0.25
-texture = ExtResource("16_irqdd")
+texture = ExtResource("2_3oxu1")
 texture_scale = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
