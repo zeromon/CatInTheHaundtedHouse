@@ -1,0 +1,60 @@
+[gd_scene load_steps=14 format=3 uid="uid://cuufnegrde4i1"]
+
+[ext_resource type="Texture2D" uid="uid://txsp5fksg50g" path="res://GridMaps/Walls/Brick/DarkBrick.png" id="1_b0jcd"]
+[ext_resource type="Texture2D" uid="uid://qe5k7nsgig1i" path="res://GridMaps/Walls/Brick/DarkwRed.png" id="2_ck1qw"]
+[ext_resource type="Texture2D" uid="uid://fqlt6lqxbufc" path="res://GridMaps/Walls/Brick/greyWMoss.png" id="3_fmtu0"]
+[ext_resource type="Texture2D" uid="uid://cufy7ahbm5k0a" path="res://GridMaps/Walls/Brick/LightBrick.png" id="4_vs7cs"]
+[ext_resource type="Texture2D" uid="uid://b8nxng4nnkhxs" path="res://GridMaps/Walls/Wood/DarkWood.png" id="5_ja7xh"]
+[ext_resource type="Texture2D" uid="uid://bytp88nmgklhb" path="res://GridMaps/Walls/Wood/WoodLight.png" id="6_gohkt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u75k2"]
+resource_name = "MedBrick"
+texture = ExtResource("1_b0jcd")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dl7qq"]
+resource_name = "DarkBrick"
+texture = ExtResource("2_ck1qw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i777g"]
+resource_name = "DarkStone"
+texture = ExtResource("3_fmtu0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wsqjv"]
+resource_name = "LightBrick"
+texture = ExtResource("4_vs7cs")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_joeo3"]
+resource_name = "DarkWood"
+texture = ExtResource("5_ja7xh")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kjppb"]
+resource_name = "LightWood"
+texture = ExtResource("6_gohkt")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o0fj3"]
+tile_size = Vector2i(64, 64)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_u75k2")
+sources/1 = SubResource("TileSetAtlasSource_dl7qq")
+sources/2 = SubResource("TileSetAtlasSource_i777g")
+sources/3 = SubResource("TileSetAtlasSource_wsqjv")
+sources/4 = SubResource("TileSetAtlasSource_joeo3")
+sources/5 = SubResource("TileSetAtlasSource_kjppb")
+
+[node name="Walls" type="TileMap"]
+tile_set = SubResource("TileSet_o0fj3")
+cell_quadrant_size = 4
+collision_visibility_mode = 1
+format = 2

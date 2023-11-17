@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbj4ilxcq7xm"]
+
+[ext_resource type="PackedScene" uid="uid://cuufnegrde4i1" path="res://GridMaps/Walls/walls.tscn" id="1_wpaa3"]
+[ext_resource type="PackedScene" uid="uid://c2m8il7mowvp5" path="res://GridMaps/Floors/floors.tscn" id="2_psrat"]
+
+[node name="GridMaps" type="Node2D"]
+
+[node name="Walls" parent="." instance=ExtResource("1_wpaa3")]
+
+[node name="Floors" parent="." instance=ExtResource("2_psrat")]
