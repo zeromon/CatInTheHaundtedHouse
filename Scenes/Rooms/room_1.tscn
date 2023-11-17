@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ec6oiaa4gi7x"]
+[gd_scene load_steps=5 format=3 uid="uid://ec6oiaa4gi7x"]
 
 [ext_resource type="PackedScene" uid="uid://c8eq3sc0l7fce" path="res://Scenes/Ground/ground.tscn" id="1_jcbsw"]
 [ext_resource type="PackedScene" uid="uid://dk03ws1esoaae" path="res://Scenes/DropObject/drop_anchor.tscn" id="3_u3dn7"]
 [ext_resource type="PackedScene" uid="uid://eqq3mct25tnu" path="res://Scenes/DropObject/drop_object.tscn" id="4_fgcpf"]
 [ext_resource type="PackedScene" uid="uid://d7f7ngaohts5" path="res://Scenes/MovingObject/moving_object.tscn" id="5_4ge6u"]
-[ext_resource type="PackedScene" uid="uid://daxi067xlkeu0" path="res://Scenes/CollectibleObjects/collectible_obj.tscn" id="6_45vse"]
 
 [node name="Room1" type="Node2D"]
 
@@ -21,21 +20,21 @@ position = Vector2(574, 0)
 [node name="MovingObjetcs" type="Node2D" parent="."]
 
 [node name="MovingObject" parent="MovingObjetcs" node_paths=PackedStringArray("_ray_cast") instance=ExtResource("5_4ge6u")]
-position = Vector2(199, 423)
+position = Vector2(209, 256)
 _ray_cast = NodePath("RayCast2D")
 _speed = 500.0
 
 [node name="RayCast2D" type="RayCast2D" parent="MovingObjetcs/MovingObject"]
-target_position = Vector2(80, 175)
+target_position = Vector2(108, 362)
 collision_mask = 2
 
 [node name="MovingObject2" parent="MovingObjetcs" node_paths=PackedStringArray("_ray_cast") instance=ExtResource("5_4ge6u")]
-position = Vector2(811, 496)
+position = Vector2(644, 257)
 _ray_cast = NodePath("RayCast2D")
 _speed = 500.0
 
 [node name="RayCast2D" type="RayCast2D" parent="MovingObjetcs/MovingObject2"]
-target_position = Vector2(-163, 131)
+target_position = Vector2(136, 354)
 collision_mask = 2
 
 [node name="DropObjects" type="Node2D" parent="."]
@@ -47,9 +46,4 @@ node_b = NodePath("../DropObject")
 
 [node name="DropObject" parent="DropObjects" instance=ExtResource("4_fgcpf")]
 position = Vector2(478, 92)
-
-[node name="Collectibles" type="Node2D" parent="."]
-
-[node name="CollectibleObj" parent="Collectibles" instance=ExtResource("6_45vse")]
-position = Vector2(627, 550)
-_ColliderName = "coin"
+lock_rotation = true

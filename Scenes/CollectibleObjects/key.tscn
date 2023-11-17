@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch8yb33b72818"]
+[gd_scene load_steps=4 format=3 uid="uid://ch8yb33b72818"]
 
 [ext_resource type="Script" path="res://Scenes/CollectibleObjects/collectible_obj.gd" id="1_gm3kq"]
+[ext_resource type="Texture2D" uid="uid://c8thusy7ayo3q" path="res://Assets/Sprites/key.png" id="2_mp8ma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0x08d"]
 
@@ -12,3 +13,7 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
 shape = SubResource("RectangleShape2D_0x08d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mp8ma")

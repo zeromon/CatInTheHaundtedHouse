@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5pw2vovttbwa"]
+
+[ext_resource type="Texture2D" uid="uid://bavnbg4w4fser" path="res://Scenes/GridMaps/Floors/Shelf.png" id="1_7sdij"]
+[ext_resource type="Texture2D" uid="uid://bjp8hgsgym2ui" path="res://Scenes/GridMaps/Floors/Stone.png" id="2_6xl67"]
+[ext_resource type="Texture2D" uid="uid://xw5s3w7ar0ne" path="res://Scenes/GridMaps/Floors/WoodFloor.png" id="3_bq0c1"]
+[ext_resource type="Texture2D" uid="uid://dcgwphw66ai50" path="res://Scenes/GridMaps/Floors/WallsFloor.png" id="4_smgv6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbml2"]
+texture = ExtResource("1_7sdij")
+texture_region_size = Vector2i(64, 32)
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jpu1"]
+texture = ExtResource("2_6xl67")
+margins = Vector2i(0, 32)
+texture_region_size = Vector2i(64, 16)
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m4tp3"]
+texture = ExtResource("3_bq0c1")
+margins = Vector2i(0, 32)
+texture_region_size = Vector2i(64, 16)
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmwpj"]
+texture = ExtResource("4_smgv6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vu2nd"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_kbml2")
+sources/1 = SubResource("TileSetAtlasSource_1jpu1")
+sources/2 = SubResource("TileSetAtlasSource_m4tp3")
+sources/3 = SubResource("TileSetAtlasSource_fmwpj")
+
+[node name="FloorMap" type="TileMap"]
+tile_set = SubResource("TileSet_vu2nd")
+format = 2

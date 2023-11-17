@@ -1,17 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcqrewwuo8ggc"]
+[gd_scene load_steps=6 format=3 uid="uid://bcqrewwuo8ggc"]
 
 [ext_resource type="Script" path="res://Scenes/Ghost/ghost.gd" id="1_pel5k"]
 [ext_resource type="AudioStream" uid="uid://ddltpuk3yey86" path="res://Assets/Audio/ghost.mp3" id="2_eaooo"]
+[ext_resource type="Texture2D" uid="uid://cjkyrbv2gd27u" path="res://Assets/Sprites/ghost.png" id="2_uxi5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkq76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_062kn"]
+size = Vector2(29, 43.5)
 
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_pel5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uxi5p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
@@ -21,11 +27,12 @@ shape = SubResource("RectangleShape2D_gkq76")
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyGhost"]
+position = Vector2(-3, -8.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_062kn")
 
 [node name="AudioGhost" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_eaooo")
-volume_db = 10.0
+volume_db = 20.0
 
 [connection signal="finished" from="AudioGhost" to="." method="_on_audio_ghost_finished"]

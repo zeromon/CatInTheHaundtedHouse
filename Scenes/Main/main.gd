@@ -15,6 +15,9 @@ func _ready():
 	cat.position = check_point.global_position
 	cat.check_point = check_point
 	$AudioBackgrounds/CrossFadeAudio1.audio_play()
+	for i in range(100):
+		var random = randi_range(-1, exit_doors.size()-1)
+		#print(random)
 	randomize()
 
 
@@ -33,6 +36,7 @@ func _on_enter_room_3_enter_area():
 	door2.change_status(Door.STATUS.CLOSE)
 	$Ghost.set_moving(false)
 	$AudioBackgrounds/CrossFadeAudio2.fade_audio()
+	$AudioBackgrounds/CrossFadeAudio3.audio_play()
 #	$AudioBackgrounds/AudioBackground2.stop()
 #	$AudioBackgrounds/AudioBackground3.play()
 	pass # Replace with function body.

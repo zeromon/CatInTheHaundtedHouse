@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://eqq3mct25tnu"]
+[gd_scene load_steps=4 format=3 uid="uid://eqq3mct25tnu"]
 
 [ext_resource type="Script" path="res://Scenes/DropObject/drop_object.gd" id="1_oldkk"]
+[ext_resource type="Texture2D" uid="uid://cqeungxfugsxp" path="res://Assets/Sprites/Box.png" id="2_055s6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv0py"]
 
@@ -9,8 +10,13 @@ max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_oldkk")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 14)
+scale = Vector2(2, 2)
+texture = ExtResource("2_055s6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_gv0py")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://coiroubajeabm"]
+[gd_scene load_steps=4 format=3 uid="uid://coiroubajeabm"]
 
 [ext_resource type="Script" path="res://Scenes/Doors/door.gd" id="1_sv4a6"]
+[ext_resource type="Texture2D" uid="uid://b8p78appcddb6" path="res://Assets/Sprites/open-door.png" id="2_qghwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayvog"]
-size = Vector2(20, 87)
+size = Vector2(20, 132.5)
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_sv4a6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22.75)
 shape = SubResource("RectangleShape2D_ayvog")
 disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-25.6, -16.9)
+scale = Vector2(0.123438, 0.266016)
+texture = ExtResource("2_qghwh")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://xhk35srt0psw"]
+[gd_scene load_steps=4 format=3 uid="uid://xhk35srt0psw"]
 
 [ext_resource type="Script" path="res://Scenes/Doors/door_activator.gd" id="1_gujkf"]
+[ext_resource type="Texture2D" uid="uid://c45aqnirgq7nu" path="res://Assets/Sprites/key-hole.png" id="2_evlba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mb2w"]
 
@@ -14,6 +15,10 @@ offset_top = -75.0
 offset_right = 138.0
 offset_bottom = -49.0
 text = "Press E to insert  key"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_evlba")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(4, 4)

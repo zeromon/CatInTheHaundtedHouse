@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d7f7ngaohts5"]
+[gd_scene load_steps=5 format=3 uid="uid://d7f7ngaohts5"]
 
 [ext_resource type="Script" path="res://Scenes/MovingObject/moving_object.gd" id="1_pf1vw"]
+[ext_resource type="Texture2D" uid="uid://c63qen8vfc1mw" path="res://Assets/Sprites/knife.png" id="2_mi02p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsdr3"]
-size = Vector2(54, 20)
+size = Vector2(68, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cj5kr"]
 size = Vector2(55, 20)
@@ -14,7 +15,13 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_pf1vw")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-20, 13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_mi02p")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-66, 1)
 shape = SubResource("RectangleShape2D_dsdr3")
 
 [node name="BodyMovingObject" type="Area2D" parent="."]

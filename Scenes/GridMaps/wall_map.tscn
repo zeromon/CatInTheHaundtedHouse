@@ -1,0 +1,44 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsgxvxydmninq"]
+
+[ext_resource type="Texture2D" uid="uid://txsp5fksg50g" path="res://Scenes/GridMaps/Walls/Brick/DarkBrick.png" id="1_wgjni"]
+[ext_resource type="Texture2D" uid="uid://fqlt6lqxbufc" path="res://Scenes/GridMaps/Walls/Brick/greyWMoss.png" id="2_8iecv"]
+[ext_resource type="Texture2D" uid="uid://cufy7ahbm5k0a" path="res://Scenes/GridMaps/Walls/Brick/LightBrick.png" id="3_72v16"]
+[ext_resource type="Texture2D" uid="uid://b8nxng4nnkhxs" path="res://Scenes/GridMaps/Walls/Wood/DarkWood.png" id="4_fywmp"]
+[ext_resource type="Texture2D" uid="uid://bytp88nmgklhb" path="res://Scenes/GridMaps/Walls/Wood/WoodLight.png" id="5_qjyhg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lp5kp"]
+texture = ExtResource("1_wgjni")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oi3bv"]
+texture = ExtResource("2_8iecv")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5k2hf"]
+texture = ExtResource("3_72v16")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sleqr"]
+texture = ExtResource("4_fywmp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ahje"]
+texture = ExtResource("5_qjyhg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3bgmj"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_lp5kp")
+sources/1 = SubResource("TileSetAtlasSource_oi3bv")
+sources/2 = SubResource("TileSetAtlasSource_5k2hf")
+sources/3 = SubResource("TileSetAtlasSource_sleqr")
+sources/4 = SubResource("TileSetAtlasSource_4ahje")
+
+[node name="WallMap" type="TileMap"]
+tile_set = SubResource("TileSet_3bgmj")
+format = 2
