@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://clu516mhbxvln"]
+
+[ext_resource type="Texture2D" uid="uid://6oiclyujk1rv" path="res://Assets/SpookyBooth/Table.png" id="1_1eyl4"]
+[ext_resource type="Texture2D" uid="uid://bwmjc77p42qv0" path="res://Assets/SpookyBooth/ghost.png" id="2_hj0af"]
+[ext_resource type="Texture2D" uid="uid://bxd1kcr7gq1o2" path="res://Assets/SpookyBooth/Cover.png" id="3_tsbjr"]
+[ext_resource type="Texture2D" uid="uid://daubnpn1sxfmr" path="res://Assets/SpookyBooth/FX_CloudAlpha01.png" id="4_1xst2"]
+
+[sub_resource type="GDScript" id="GDScript_qwjxj"]
+resource_name = "SpookyBoothBuiltIn"
+script/source = "extends Sprite2D
+
+func _ready():
+	$Ghost2.visible = false
+	pass
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group('Player'):
+		print('spooky')
+		$GPUParticles2D.emitting = true
+		await (get_tree().create_timer(.75).timeout)
+		$Ghost2.visible = true
+		await (get_tree().create_timer(3).timeout)
+		$Ghost2.visible = false
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6en66"]
+size = Vector2(200, 200)
+
+[sub_resource type="Curve" id="Curve_fy4hs"]
+_data = [Vector2(0, 0.168421), 0.0, 0.0, 0, 0, Vector2(0.493976, 0.463158), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r6piv"]
+curve = SubResource("Curve_fy4hs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_skqet"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 78.0
+initial_velocity_max = 78.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_max = 18.95
+angle_min = -45.0
+angle_max = 45.0
+scale_curve = SubResource("CurveTexture_r6piv")
+
+[node name="SpookyBooth" type="Sprite2D"]
+position = Vector2(768, 391)
+texture = ExtResource("1_1eyl4")
+script = SubResource("GDScript_qwjxj")
+
+[node name="Ghost2" type="Sprite2D" parent="."]
+position = Vector2(135, -0.999939)
+scale = Vector2(0.330454, 0.330454)
+texture = ExtResource("2_hj0af")
+
+[node name="Cover" type="Sprite2D" parent="."]
+position = Vector2(-2, -5)
+texture = ExtResource("3_tsbjr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(122, 4)
+shape = SubResource("RectangleShape2D_6en66")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(121, -117)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_skqet")
+texture = ExtResource("4_1xst2")
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
