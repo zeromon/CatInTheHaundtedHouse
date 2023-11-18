@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs02ldl8xkbiq"
+path="res://.godot/imported/Cat Game Music_zone 3_Final.mp3-edf27c977976e60816b0f330e0498d4a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Cat Game Music_zone 3_Final.mp3"
+dest_files=["res://.godot/imported/Cat Game Music_zone 3_Final.mp3-edf27c977976e60816b0f330e0498d4a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

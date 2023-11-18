@@ -10,10 +10,13 @@ extends Node2D
 @export var exit_doors:Array[DoorExit]
 
 var true_door_exit_name:String = ""
+var lives:int = 9
+@onready var lives_label:Label = $HUD/LivesLabelValue
 
 func _ready():
 	cat.position = check_point.global_position
 	cat.check_point = check_point
+	lives_label.set_text(str(lives))
 	$AudioBackgrounds/CrossFadeAudio1.audio_play()
 	for i in range(100):
 		var random = randi_range(-1, exit_doors.size()-1)
@@ -36,7 +39,7 @@ func _on_enter_room_3_enter_area():
 	door2.change_status(Door.STATUS.CLOSE)
 	$Ghost.set_moving(false)
 	$AudioBackgrounds/CrossFadeAudio2.fade_audio()
-	$AudioBackgrounds/CrossFadeAudio3.audio_play()
+	$AudioBackgrounds/FadeInAudio.fade_in_audio()
 #	$AudioBackgrounds/AudioBackground2.stop()
 #	$AudioBackgrounds/AudioBackground3.play()
 	pass # Replace with function body.
@@ -65,4 +68,13 @@ func _on_door_exit_exit_door(val):
 func _on_button_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func _on_cat_hit():
+	lives -= 1
+	if lives <1:
+		get_tree().paused = true
+		$GameOverUI.show()
+	lives_label.set_text(str(lives))
 	pass # Replace with function body.

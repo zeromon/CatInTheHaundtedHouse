@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdvexch1d3s2o"]
+[gd_scene load_steps=7 format=3 uid="uid://bdvexch1d3s2o"]
 
 [ext_resource type="Script" path="res://Scenes/CrossFadeAudio/cross_fade_audio.gd" id="1_kxojt"]
 [ext_resource type="Script" path="res://Scenes/AudioBackground/AudioBackground.gd" id="2_ukbo2"]
+[ext_resource type="AudioStream" uid="uid://b8t6gltgh3248" path="res://Assets/Audio/Cat Game Music_zone 2_Final.mp3" id="2_x1dr6"]
 
 [sub_resource type="Animation" id="Animation_cvfb7"]
 length = 0.001
@@ -30,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 5.66),
 "update": 0,
-"values": [10.0, -1.0]
+"values": [0.0, -25.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_skayh"]
@@ -48,6 +49,7 @@ libraries = {
 }
 
 [node name="Audio1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1dr6")
 volume_db = 10.0
 autoplay = true
 script = ExtResource("2_ukbo2")

@@ -13,13 +13,17 @@ signal hit
 var current_speed:float
 var check_point: Marker2D
 var inventory:String
-var anim: AnimatedSprite2D
+var anim: AnimationPlayer
+var anim_sprite: AnimatedSprite2D
 var is_jump:bool = false
 var collision2:CollisionShape2D
 
+@onready var jump_audio:AudioStreamPlayer2D = $JumpAudio
+
 func _ready():
 	current_speed = SPEED
-	anim = $AnimatedSprite2D
+	anim = $AnimationPlayer
+	anim_sprite = $AnimatedSprite2D
 	collision2 = $Collision2
 
 func _physics_process(delta):
@@ -33,6 +37,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_audio.play()
 	
 	#run
 	if Input.is_action_pressed("run"):
@@ -45,23 +50,27 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction<0:
-		anim.flip_h = true
+		anim_sprite.flip_h = true
 		collision2.set_deferred("disabled", false)
 #		anim.play("walk")
 	elif direction>0:
-		anim.flip_h = false
+		anim_sprite.flip_h = false
 		collision2.set_deferred("disabled", true)
 #		anim.play("walk")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if velocity.x !=0:
-		anim.play("walk")
+	if is_on_floor():
+		if velocity.x !=0:
+			anim.play("walk")
+		else:
+			anim.play("Idle")
 	else:
-		anim.play("idle")
-	if velocity.y < 0:
-		anim.play("jump")
+		if velocity.y < 0:
+			anim.play("Jump")
+		if velocity.y > 0:
+			anim.play("Fall")
 
 	move_and_slide()
 
@@ -69,6 +78,9 @@ func reset_position():
 	hit.emit()
 	# it using position from check point
 	position = check_point.position
+
+func action_animation():
+	anim.play("Interact")
 
 func _on_area_2d_area_entered(area:Area2D):
 	if area.name == "Coin":
@@ -78,7 +90,8 @@ func _on_area_2d_area_entered(area:Area2D):
 	elif area.name == "Key":
 		inventory = "Key"
 		var parent:CollectibleObj = area.get_parent()
-		parent.queue_free()
+		parent.play_audio()
+		parent.visible = false
 	elif area.name == "BodyGhost":
 		var parent = area.get_parent()
 		#reset ghost position

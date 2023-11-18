@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch8yb33b72818"]
+[gd_scene load_steps=5 format=3 uid="uid://ch8yb33b72818"]
 
 [ext_resource type="Script" path="res://Scenes/CollectibleObjects/collectible_obj.gd" id="1_gm3kq"]
 [ext_resource type="Texture2D" uid="uid://c8thusy7ayo3q" path="res://Assets/Sprites/key.png" id="2_mp8ma"]
+[ext_resource type="AudioStream" uid="uid://ce8b7r1118vm0" path="res://Assets/Audio/pickup1.mp3" id="3_mqt2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0x08d"]
 
@@ -17,3 +18,9 @@ shape = SubResource("RectangleShape2D_0x08d")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_mp8ma")
+
+[node name="PickUpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mqt2e")
+volume_db = 5.0
+
+[connection signal="finished" from="PickUpAudio" to="." method="_on_pick_up_audio_finished"]
